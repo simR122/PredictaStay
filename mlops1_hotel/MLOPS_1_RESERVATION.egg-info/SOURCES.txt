@@ -5,4 +5,10 @@ MLOPS_1_RESERVATION.egg-info/dependency_links.txt
 MLOPS_1_RESERVATION.egg-info/requires.txt
 MLOPS_1_RESERVATION.egg-info/top_level.txt
 config/__init__.py
+config/paths_config.py
+src/__init__.py
+src/custom_exception.py
+src/data_ingestion.py
+src/logger.py
 utils/__init__.py
+utils/common_functions.py

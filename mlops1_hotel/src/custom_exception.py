@@ -3,7 +3,7 @@ import sys #system lib
 
 class CustomException(Exception): #inherit from predefined Exception class because we are just adding some on top of it.
 
-    def __init__(self,error_message, error_detail:sys):
+    def __init__(self, error_message, error_detail:sys):
         super().__init__(error_message) #inherit: show exception iff that error msg doesn't exist in parent fn
         self.error_message = self.get_detailed_error_message(error_message, error_detail)
 
@@ -11,7 +11,7 @@ class CustomException(Exception): #inherit from predefined Exception class becau
     def get_detailed_error_message(error_message, error_detail:sys): #: means error_details belong to sys
         
         #error msg have 3 things and we need only last thing, i.e traceback
-        _, _, exc_tb = error_detail.exc_info()
+        _, _, exc_tb = sys.exc_info()
         file_name = exc_tb.tb_frame.f_code.co_filename #to display the filename having error
         line_number = exc_tb.tb_lineno
         #f-string,feature in Python used for string interpolation

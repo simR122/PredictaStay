@@ -6,7 +6,7 @@ with open("requirements.txt") as f:
 setup(
     name="HOTEL-RESERVATION-PROJECT",
     version="0.1",
-    author="Simran R"
+    author="Simran R",
     packages=find_packages(),
     install_requires= requirements,
     )

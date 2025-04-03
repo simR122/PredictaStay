@@ -1,0 +1,5 @@
+data_ingestion:
+  bucket_name : "hotel-reservation-unique-bucket"
+  bucket_file_name : "HotelReservations.csv"
+  train_ratio : 0.8
+  
