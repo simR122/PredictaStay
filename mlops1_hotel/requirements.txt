@@ -3,3 +3,4 @@ numpy
 boto3 #aws SDK (for gcp : google-cloud-storage)
 scikit-learn
 pyyaml
+imbalanced-learn

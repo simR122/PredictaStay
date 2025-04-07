@@ -1,4 +1,4 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.2
 Name: MLOPS-1-RESERVATION
 Version: 0.1
 Author: Simran
@@ -7,5 +7,6 @@ Requires-Dist: numpy
 Requires-Dist: boto3
 Requires-Dist: scikit-learn
 Requires-Dist: pyyaml
+Requires-Dist: imbalanced-learn
 Dynamic: author
 Dynamic: requires-dist

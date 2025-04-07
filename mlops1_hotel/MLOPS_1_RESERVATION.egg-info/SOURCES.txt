@@ -9,6 +9,7 @@ config/paths_config.py
 src/__init__.py
 src/custom_exception.py
 src/data_ingestion.py
+src/data_preprocessing.py
 src/logger.py
 utils/__init__.py
 utils/common_functions.py
