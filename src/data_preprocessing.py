@@ -16,6 +16,7 @@ class DataProcessor:
         self.train_path = train_path
         self.test_path = test_path
         self.processed_dir = processed_dir
+        self.config_path = config_path  # Initialize config_path
 
         self.config = read_yaml(config_path)
         logger.info(f"Loaded configuration: {self.config}")
@@ -28,7 +29,7 @@ class DataProcessor:
             logger.info("Starting data processing step")
 
             logger.info("Dropping unnecessary columns")
-            df.drop(columns=['Booking_Id'], inplace=True, errors='ignore')
+            df.drop(columns=['Booking_ID'], inplace=True, errors='ignore')
             df.drop_duplicates(inplace=True)
             logger.info("Done dropping unnecessary columns")
 
@@ -58,6 +59,7 @@ class DataProcessor:
                 df[column] = np.log1p(df[column])
 
             return df
+            print(df.dtypes)
         
         except Exception as e:
             logger.error(f"Error in data processing: {e}")

@@ -1,5 +1,3 @@
-# function for reading yaml files
-
 import os
 import pandas as pd
 from src.logger import get_logger
