@@ -1,13 +1,15 @@
-# Use the Jenkins image as the base image
-FROM jenkins/jenkins:lts
 # Update base image to reduce vulnerabilities
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get dist-upgrade -y && \
-    apt-get clean
+FROM jenkins/jenkins:lts
 
 # Switch to root user to install dependencies
 USER root
+
+# Install sudo and grant jenkins user sudo privileges
+RUN apt-get update -y && \
+    apt-get install -y sudo && \
+    echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install prerequisites and Docker
 RUN apt-get update -y && \
@@ -16,7 +18,8 @@ RUN apt-get update -y && \
     echo "deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable" > /etc/apt/sources.list.d/docker.list && \
     apt-get update -y && \
     apt-get install -y docker-ce docker-ce-cli containerd.io && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Add Jenkins user to the Docker group (create if it doesn't exist)
 RUN groupadd -f docker && \
@@ -28,7 +31,6 @@ VOLUME /var/lib/docker
 
 # Switch back to the Jenkins user
 USER jenkins
-
 
 #docker build -t jenkins-dind . # inside the custom_jenkins folder
 # docker images
