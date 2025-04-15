@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-        stage('Installing python3-venv package') {
+        stage('Installing python-venv package') {
             steps {
                 script {
                     echo 'Installing python3-venv package...........'
