@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing python3-venv package...........'
-                    sh 'sudo apt-get update && sudo apt-get install -y python3-venv'
+                    sh 'apt-get update && apt-get install -y python3-venv'
                 }
             }
         }
