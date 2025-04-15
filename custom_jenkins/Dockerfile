@@ -1,5 +1,10 @@
 # Use the Jenkins image as the base image
 FROM jenkins/jenkins:lts
+# Update base image to reduce vulnerabilities
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get dist-upgrade -y && \
+    apt-get clean
 
 # Switch to root user to install dependencies
 USER root
@@ -23,6 +28,7 @@ VOLUME /var/lib/docker
 
 # Switch back to the Jenkins user
 USER jenkins
+
 
 #docker build -t jenkins-dind . # inside the custom_jenkins folder
 # docker images
