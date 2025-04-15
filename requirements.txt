@@ -5,4 +5,5 @@ scikit-learn
 pyyaml
 imbalanced-learn
 lightgbm
-mlflow #mlflow ui command
+mlflow #mlflow ui 
+flask

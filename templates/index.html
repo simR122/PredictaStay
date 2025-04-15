@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>HOTEL RESERVATION PREDICTION</title>
+</head>
+<body>
+<div class="container">
+    <h2>HOTEL RESERVATION PREDICTION</h2>
+
+    <form method="POST">
+        <div class="form-group">
+            <label for="lead_time">Lead Time:</label>
+            <input type="number" id="lead_time" name="lead_time" value="{{ request.form.get('lead_time', '') }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="no_of_special_request">NO. of Special Request:</label>
+            <input type="number" id="no_of_special_request" name="no_of_special_request" value="{{ request.form.get('no_of_special_request', '') }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="avg_price_per_room">Average Price per Room:</label>
+            <input type="number" id="avg_price_per_room" name="avg_price_per_room" value="{{ request.form.get('avg_price_per_room', '') }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="arrival_month">Arrival Month:</label>
+            <select id="arrival_month" name="arrival_month" required>
+                <option value="1" {% if request.form.get('arrival_month') == '1' %}selected{% endif %}>January</option>
+                <option value="2" {% if request.form.get('arrival_month') == '2' %}selected{% endif %}>February</option>
+                <option value="3" {% if request.form.get('arrival_month') == '3' %}selected{% endif %}>March</option>
+                <option value="4" {% if request.form.get('arrival_month') == '4' %}selected{% endif %}>April</option>
+                <option value="5" {% if request.form.get('arrival_month') == '5' %}selected{% endif %}>May</option>    
+                <option value="6" {% if request.form.get('arrival_month') == '6' %}selected{% endif %}>June</option>
+                <option value="7" {% if request.form.get('arrival_month') == '7' %}selected{% endif %}>July</option>
+                <option value="8" {% if request.form.get('arrival_month') == '8' %}selected{% endif %}>August</option>
+                <option value="9" {% if request.form.get('arrival_month') == '9' %}selected{% endif %}>September</option>
+                <option value="10" {% if request.form.get('arrival_month') == '10' %}selected{% endif %}>October</option>
+                <option value="11" {% if request.form.get('arrival_month') == '11' %}selected{% endif %}>November</option>
+                <option value="12" {% if request.form.get('arrival_month') == '12' %}selected{% endif %}>December</option>    
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="arrival_date">Arrival Date:</label>
+            <select id="arrival_date" name="arrival_date" required>
+                {% for i in range(1, 32) %}
+                    <option value="{{ i }}" {% if request.form.get('arrival_date') == i|string %}selected{% endif %}>{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="market_segment_type">Market Segment Type:</label>
+            <select id="market_segment_type" name="market_segment_type" required>
+                <option value="0" {% if request.form.get('market_segment_type') == '0' %}selected{% endif %}>Aviation</option>
+                <option value="1" {% if request.form.get('market_segment_type') == '1' %}selected{% endif %}>Complementary</option>
+                <option value="2" {% if request.form.get('market_segment_type') == '2' %}selected{% endif %}>Corporate</option>
+                <option value="3" {% if request.form.get('market_segment_type') == '3' %}selected{% endif %}>Offline TA/TO</option>
+                <option value="4" {% if request.form.get('market_segment_type') == '4' %}selected{% endif %}>Online TA</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="no_of_weekend_nights">No. of Weekend Nights:</label>
+            <input type="number" id="no_of_weekend_nights" name="no_of_weekend_nights" value="{{ request.form.get('no_of_weekend_nights', '') }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="no_of_week_nights">No. of Week Nights:</label>
+            <input type="number" id="no_of_week_nights" name="no_of_week_nights" value="{{ request.form.get('no_of_week_nights', '') }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="type_of_meal_plan">Type of Meal Plan:</label>
+            <select id="type_of_meal_plan" name="type_of_meal_plan" required>
+                <option value="0" {% if request.form.get('type_of_meal_plan') == '0' %}selected{% endif %}>Meal Plan 1</option>
+                <option value="1" {% if request.form.get('type_of_meal_plan') == '1' %}selected{% endif %}>Meal Plan 2</option>
+                <option value="2" {% if request.form.get('type_of_meal_plan') == '2' %}selected{% endif %}>Meal Plan 3</option>
+                <option value="3" {% if request.form.get('type_of_meal_plan') == '3' %}selected{% endif %}>Not Selected</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="required_car_parking_space">Required Car Parking Space:</label>
+            <select id="required_car_parking_space" name="required_car_parking_space" required>
+                <option value="0" {% if request.form.get('required_car_parking_space') == '0' %}selected{% endif %}>No</option>
+                <option value="1" {% if request.form.get('required_car_parking_space') == '1' %}selected{% endif %}>Yes</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="room_type_reserved">Room Type Reserved:</label>
+            <select id="room_type_reserved" name="room_type_reserved" required>
+                <option value="0" {% if request.form.get('room_type_reserved') == '0' %}selected{% endif %}>Room Type 1</option>
+                <option value="1" {% if request.form.get('room_type_reserved') == '1' %}selected{% endif %}>Room Type 2</option>
+                <option value="2" {% if request.form.get('room_type_reserved') == '2' %}selected{% endif %}>Room Type 3</option>
+                <option value="3" {% if request.form.get('room_type_reserved') == '3' %}selected{% endif %}>Room Type 4</option>
+                <option value="4" {% if request.form.get('room_type_reserved') == '4' %}selected{% endif %}>Room Type 5</option>
+                <option value="5" {% if request.form.get('room_type_reserved') == '5' %}selected{% endif %}>Room Type 6</option>
+                <option value="6" {% if request.form.get('room_type_reserved') == '6' %}selected{% endif %}>Room Type 7</option>
+            </select>
+        </div>
+        
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+    <div class="result">
+        {% if prediction == 0 %}
+        <p>The customer is going to cancel the reservation</p>
+        {% elif prediction == 1 %}
+        <p>The customer is not going to cancel the reservation</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <button type="button" onclick="location.href='/'">Refresh</button>
+</div>
+</body>
+</html>
