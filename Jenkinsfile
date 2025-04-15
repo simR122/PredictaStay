@@ -17,7 +17,7 @@ pipeline {
         stage('Installing python-venv package') {
             steps {
                 script {
-                    echo 'Installing python3-venv package...........'
+                    echo 'Installing python-venv package...........'
                     sh 'apt-get update && apt-get install -y python3-venv'
                 }
             }
