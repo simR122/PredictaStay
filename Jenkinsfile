@@ -14,6 +14,14 @@ pipeline {
                 }
             }
         }
+        stage('Installing python3-venv package') {
+            steps {
+                script {
+                    echo 'Installing python3-venv package...........'
+                    sh 'sudo apt-get update && sudo apt-get install -y python3-venv'
+                }
+            }
+        }
         stage('Setting up our virtual env and installing dependencies') {
             steps {
                 script {
