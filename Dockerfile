@@ -23,19 +23,5 @@ EXPOSE 5000
 # Command to run the app
 CMD ["python", "application.py"]
 
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Hello, AWS Lambda!"
-
-from application import app
-
-def handler(event, context):
-    from serverless_wsgi import handle_request
-    return handle_request(app, event, context)
-
 
 
