@@ -1,9 +1,12 @@
 # Use the Jenkins image as the base image
 FROM jenkins/jenkins:lts
 
+# <<<<<<< master
 # Switch to root user to install dependencies
 USER root
 
+# =======
+# >>>>>>> main
 # Install prerequisites and Docker
 RUN apt-get update -y && \
     apt-get install -y apt-transport-https ca-certificates curl gnupg software-properties-common && \
