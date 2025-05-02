@@ -14,3 +14,5 @@ MLOPS_1_RESERVATION.egg-info
 ################## Removed cached files ##################
 # Uncomment the following lines to remove cached files from the repository
 # git rm -r --cached config/__pycache__/
+
+vendor/*
