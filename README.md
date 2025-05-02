@@ -7,6 +7,9 @@
 ![Jenkins](https://img.shields.io/badge/Jenkins-CI%2FCD-red?logo=jenkins&logoColor=white)
 ![LightGBM](https://img.shields.io/badge/LightGBM-Model-green?logo=lightgbm&logoColor=white)
 
+## Live Application
+**Try before I am out of AWS credits**: [Hotel Reservation Prediction](http://a4d76dacd85884eaaa2c0f1b1e173b67-1601615365.us-east-1.elb.amazonaws.com)
+
 ## Overview
 This project demonstrates an end-to-end MLOps pipeline for predicting hotel reservations. It includes data ingestion, preprocessing, model training, and deployment. The application is deployed on AWS using EKS and Load Balancer, and it features a Flask-based web interface for user interaction.
 
@@ -78,8 +81,7 @@ We welcome contributions! To contribute:
 3. Commit your changes and push the branch.
 4. Open a pull request.
 
-## Live Application
-**Try before I am out of AWS credits**: [Hotel Reservation Prediction](http://a4d76dacd85884eaaa2c0f1b1e173b67-1601615365.us-east-1.elb.amazonaws.com)
+
 
 ## License
 This project is licensed under the MIT License.
