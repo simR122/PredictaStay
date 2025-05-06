@@ -39,6 +39,8 @@ This project demonstrates an end-to-end MLOps pipeline for predicting hotel rese
 - kubectl
 - Jenkins (optional for CI/CD)
 
+### Dataset (kaggle)- [LINK](https://www.kaggle.com/datasets/ahsan81/hotel-reservations-classification-dataset)
+
 ### Installation
 1. Clone the repository:
    ```bash
